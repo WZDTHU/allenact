@@ -2,3 +2,6 @@
 	path = projects/ithor_rearrangement
 	url = https://github.com/allenai/ai2thor-rearrangement.git
 	branch = active_neural_slam
+[submodule "projects/ithor_A2SP"]
+	path = projects/ithor_A2SP
+	url = https://github.com/LifengFan/AI_Assist_Special_People.git
