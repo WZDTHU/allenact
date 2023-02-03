@@ -80,7 +80,7 @@ except ImportError:
     DEBUGGING = str2bool(os.getenv("ALLENACT_DEBUG", "false"))
 
 DEBUG_VST_TIMEOUT: Optional[int] = (lambda x: int(x) if x is not None else x)(
-    os.getenv("ALLENACT_DEBUG_VST_TIMEOUT", None)
+    os.getenv("ALLENACT_DEBUG_VST_TIMEOUT", 5 * 60)
 )
 
 TRAIN_MODE_STR = "train"
@@ -573,7 +573,10 @@ class OnPolicyRLEngine(object):
         )
 
         # Flatten actions
-        flat_actions = su.flatten(self.actor_critic.action_space, actions)
+        if len(actions.shape) == 3:
+            flat_actions = actions
+        elif len(actions.shape) == 2:
+            flat_actions = su.flatten(self.actor_critic.action_space, actions)
 
         assert len(flat_actions.shape) == 3, (
             "Distribution samples must include step and task sampler dimensions [step, sampler, ...]. The simplest way"

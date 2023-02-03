@@ -35,8 +35,10 @@ def get_argument_parser():
     )
 
     parser.add_argument(
-        "experiment",
+        "--experiment", # add '--' to make this argument be positional
         type=str,
+        default='projects/ithor_A2SP/configs/symbolic_representation/symbolic_base_ppo.py',
+        required=False,   # for debug
         help="the path to experiment config file relative the 'experiment_base' directory"
         " (see the `--experiment_base` flag).",
     )
@@ -83,7 +85,7 @@ def get_argument_parser():
         "--output_dir",
         required=False,
         type=str,
-        default="experiment_output",
+        default="experiment_output/A2SP_out",
         help="experiment output folder",
     )
 

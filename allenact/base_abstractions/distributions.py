@@ -54,6 +54,8 @@ class CategoricalDistr(torch.distributions.Categorical, Distr):
         return self._param.argmax(dim=-1, keepdim=False)  # match sample()'s shape
 
     def log_prob(self, value: torch.Tensor):
+        if not isinstance(value, torch.Tensor):
+            value = torch.stack(value, dim=-1)
         if value.shape == self.logits.shape[:-1]:
             return super(CategoricalDistr, self).log_prob(value=value)
         elif value.shape == self.logits.shape[:-1] + (1,):
