@@ -85,7 +85,7 @@ def get_argument_parser():
         "--output_dir",
         required=False,
         type=str,
-        default="experiment_output/A2SP_out",
+        default="../experiment_output/allenact/A2SP_out",
         help="experiment output folder",
     )
 
