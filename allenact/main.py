@@ -451,7 +451,7 @@ def main():
 
     init_logging(args.log_level)
 
-    ().info("Running with args {}".format(args))
+    get_logger().info("Running with args {}".format(args))
 
     ptitle("Master: {}".format("Training" if args.eval is None else "Evaluation"))
 
