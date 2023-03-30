@@ -37,7 +37,7 @@ def get_argument_parser():
     parser.add_argument(
         "--experiment", # add '--' to make this argument be positional
         type=str,
-        default='projects/ithor_A2SP/configs/symbolic_representation/symbolic_base_ppo.py',
+        default='projects/ithor_A2SP/configs/symbolic_representation/symbolic_base_ppo_sa.py',
         required=False,   # for debug
         help="the path to experiment config file relative the 'experiment_base' directory"
         " (see the `--experiment_base` flag).",
@@ -114,7 +114,7 @@ def get_argument_parser():
         "-c",
         "--checkpoint",
         required=False,
-        default=None,
+        # default='/home/zidong/work/checkpoints/allenact_ckpts/exp_Symbolic_SA_PPO_A2C__stage_00__steps_000009002880.pt',
         type=str,
         help="optional checkpoint file name to resume training on or run testing with. When testing (see the `--eval` flag) this"
         " argument can be used very flexibly as:"
