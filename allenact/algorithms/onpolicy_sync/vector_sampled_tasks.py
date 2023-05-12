@@ -266,6 +266,7 @@ class VectorSampledTasks:
         timeout: Optional[float],
     ) -> Callable[[], Any]:
         def read_with_timeout(timeout_to_use: Optional[float] = timeout):
+            timeout_to_use = None
             if timeout_to_use is not None:
                 # noinspection PyArgumentList
                 if not poll_fn(timeout=timeout_to_use):
